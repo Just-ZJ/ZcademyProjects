@@ -18,7 +18,11 @@ function AddItemBar(props) {
   };
   return (
     <>
-      <FloatingLabel label="Add Task" onKeyDown={handleKeyPress}>
+      <FloatingLabel
+        label="Add Task"
+        onKeyDown={handleKeyPress}
+        className="mb-3"
+      >
         <FormControl placeholder="Add Task" />
       </FloatingLabel>
     </>

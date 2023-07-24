@@ -9,7 +9,7 @@ function NavBar(props) {
   ];
 
   return (
-    <Nav variant="tabs">
+    <Nav variant="tabs" className="border-0">
       {navigation.map((item) => {
         return <NavBarItem key={item.id} text={item.title} {...props} />;
       })}
