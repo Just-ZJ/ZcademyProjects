@@ -1,4 +1,5 @@
 import { FormCheck, ListGroupItem } from "react-bootstrap";
+import { completeTask } from "../firebase/firebasedatabase";
 
 function Task(props) {
   const { task, setContent } = props;
@@ -6,12 +7,14 @@ function Task(props) {
 
   const handleOnChange = () => {
     task.completed = true;
+    completeTask(task);
     setContent((prevContent) => {
-      prevContent.completed.push(task);
-      const active = prevContent.active.filter((item) => item != task);
-      return { ...prevContent, active };
+      const completed = [...prevContent.completed, task];
+      const active = prevContent.active.filter((item) => item !== task);
+      return { completed, active };
     });
   };
+
   return (
     <ListGroupItem className="bg-dark border-0 text-light">
       <FormCheck
@@ -21,7 +24,7 @@ function Task(props) {
         onChange={handleOnChange}
         checked={completed}
       />
-      <span className={completed && " text-decoration-line-through"}>
+      <span className={completed ? " text-decoration-line-through" : ""}>
         {description}
       </span>
     </ListGroupItem>
