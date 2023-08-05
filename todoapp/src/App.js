@@ -26,7 +26,6 @@ function App() {
     });
   }, []);
 
-  console.log(content);
   return (
     <Container className="bg-light shadow p-3">
       {/* Field to add tasks */}
