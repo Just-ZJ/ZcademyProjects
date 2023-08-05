@@ -27,13 +27,20 @@ function App() {
   }, []);
 
   return (
-    <Container className="bg-light shadow p-3">
-      {/* Field to add tasks */}
-      <AddItemBar setContent={setContent} />
-      {/* NavBar - All, Active, Completed */}
-      <NavBar setCurr={setCurr} curr={curr} />
-      {/* List of Tasks */}
-      <TaskList content={content} curr={curr} setContent={setContent} />
+    <Container>
+      <Container className="bg-light shadow p-3 mt-5">
+        {/* Field to add tasks */}
+        <AddItemBar setContent={setContent} />
+        {/* NavBar - All, Active, Completed */}
+        <NavBar setCurr={setCurr} curr={curr} />
+        {/* List of Tasks */}
+        <TaskList content={content} curr={curr} setContent={setContent} />
+      </Container>
+
+      <p className="p-3 text-danger">
+        Note: Writes to database has been disabled. (All changes would be lost
+        on page refresh)
+      </p>
     </Container>
   );
 }
